@@ -1,9 +1,8 @@
 import { assetUrl, voiceKey } from "../shared/content";
 import { ic } from "../shared/icons";
-import { closeD, refreshCustomize } from "./customize";
 import { Music } from "./music";
 import { apply, expand, phoneShow } from "./phone";
-import { $, lsSet, ssGet, ssSet, st, T, type ActiveClient, type Brand } from "./state";
+import { $, lsSet, st, T, type ActiveClient, type Brand } from "./state";
 import { lightAll, lightUpTo, preload, setSay, speak, stopAudio, stopWords, voice } from "./voice";
 import { brand } from "./welcome";
 
@@ -50,23 +49,13 @@ export function boot() {
         accent: d.business.accent,
         cur: demo.currency || "USD",
       });
-  st.KEY = "jd-" + demo.id + "-" + (CLIENT ? "c-" + (CLIENT.slug || "general") : IND);
-  st.S = Object.assign({}, st.DEF, CLIENT ? {} : ssGet(st.KEY) || {});
+  st.S = Object.assign({}, st.DEF);
   st.ST = d.steps;
   stopAudio();
   stopWords();
   brand();
   intro();
-  refreshCustomize();
 }
-
-export const save = () => {
-  if (!st.CLIENT) {
-    const c = Object.assign({}, st.S);
-    if (c.logo && c.logo.length > 300000) c.logo = null;
-    ssSet(st.KEY, c);
-  }
-};
 
 function renderDots() {
   $("dots").innerHTML = st.ST.map(
@@ -283,14 +272,11 @@ export function initControls() {
       e.preventDefault();
       go(st.cur - 1);
     } else if (e.key === " ") {
-      // Inside the Customize drawer, Space keeps its normal meaning.
-      if (target && target.closest && target.closest("#drawer")) return;
       e.preventDefault();
       if (st.cur < 0) start();
       else if (st.cur < st.ST.length) $("btnPause").click();
     } else if (e.key === "Escape") {
       if (welcomeOpen) $("welcome").hidden = true;
-      closeD();
     }
   });
   $("wPlay").onclick = start;

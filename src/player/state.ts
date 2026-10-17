@@ -24,7 +24,6 @@ export const st = {
   IND: "" as IndustryId,
   S: {} as Brand,
   DEF: {} as Brand,
-  KEY: "",
   ST: [] as Step[],
   /** Unsaved client sent by the admin's live preview (postMessage). */
   preview: null as ActiveClient,
@@ -62,18 +61,5 @@ export const lsGet = (k: string) => {
 export const lsSet = (k: string, v: unknown) => {
   try {
     localStorage.setItem(k, JSON.stringify(v));
-  } catch (e) {}
-};
-/* Customize changes last for this visit only, so the general link always opens clean */
-export const ssGet = (k: string) => {
-  try {
-    return JSON.parse(sessionStorage.getItem(k) || "null");
-  } catch (e) {
-    return null;
-  }
-};
-export const ssSet = (k: string, v: unknown) => {
-  try {
-    sessionStorage.setItem(k, JSON.stringify(v));
   } catch (e) {}
 };

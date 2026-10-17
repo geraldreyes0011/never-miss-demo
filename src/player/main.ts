@@ -1,11 +1,10 @@
 import "./styles.css";
 import { loadContent } from "../shared/content";
 import type { PreviewMessage } from "../shared/types";
-import { initCustomize } from "./customize";
 import { boot, initControls } from "./engine";
 import { $, lsGet, st } from "./state";
 
-/* Legacy keys from older versions: Customize used to persist; now it lasts for one visit only. */
+/* Legacy keys from older versions, when visitors could customize the demo. Every link now opens exactly as published. */
 try {
   Object.keys(localStorage).forEach((k) => {
     if (k.indexOf("jd-never-miss-") === 0 || k === "jd-ind" || k === "jd-cur") localStorage.removeItem(k);
@@ -22,7 +21,6 @@ async function main() {
     document.body.dataset.ready = "1";
     return;
   }
-  initCustomize();
   initControls();
   boot();
   // Reveal the page once, fully branded and in its real font, so nothing shifts as it loads.

@@ -147,7 +147,9 @@ test("live preview messages are accepted from the same origin only", async ({ pa
   await expect(page.locator("#cname")).toHaveText("Preview Dental");
 });
 
-test("keyboard controls: arrows move between steps, Space pauses, Esc closes overlays", async ({ page }) => {
+test("keyboard controls: arrows move between steps, Space pauses, Esc closes the welcome", async ({
+  page,
+}) => {
   await ready(page, "/#dental");
   await page.keyboard.press("Escape");
   await expect(page.locator("#welcome")).toBeHidden();
@@ -159,31 +161,13 @@ test("keyboard controls: arrows move between steps, Space pauses, Esc closes ove
   await expect(page.locator("#kicker")).toHaveText("Step 1 of 6");
   await page.locator("body").press(" ");
   await expect(page.locator("#btnPause")).toHaveText("Resume");
-  // Customize drawer opens and Esc closes it; no admin features are present.
-  await page.locator("#btnCustom").click();
-  await expect(page.locator("#drawer")).toHaveClass(/open/);
-  await expect(page.locator("#drawer")).not.toContainText(/client links|GitHub|token/i);
-  await page.keyboard.press("Escape");
-  await expect(page.locator("#drawer")).not.toHaveClass(/open/);
 });
 
-test("smart search in Customize picks an industry", async ({ page }) => {
-  await ready(page, "/");
-  await page.locator("#wSkip").click();
-  await page.locator("#btnCustom").click();
-  const q = page.locator("#inIndQ");
-  await q.click();
-  await expect(page.locator("#inIndList .pk-note")).toHaveText(
-    `${demo.order.length} industries · type to search`,
-  );
-  await q.fill("aircon");
-  await expect(page.locator("#inIndList .pk-note")).toHaveText("Best matches");
-  await expect(page.locator("#inIndList .pk-it").first()).toContainText("HVAC");
-  await q.fill("aircn"); // a typo still finds HVAC, flagged as a near match
-  await expect(page.locator("#inIndList .pk-note")).toHaveText("No exact match. Closest industries:");
-  await expect(page.locator("#inIndList .pk-it").first()).toContainText("HVAC");
-  await q.fill("psychologist");
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/#therapy$/);
-  await expect(page.locator("#cname")).toHaveText(demo.industries.therapy.business.name);
-});
+for (const path of ["/", "/#michelle-baratt-psychology", "/#plumbing"]) {
+  test(`visitors can't customize or edit anything on ${path}`, async ({ page }) => {
+    await ready(page, path);
+    await expect(page.getByRole("button", { name: /customi[sz]e|edit/i })).toHaveCount(0);
+    await expect(page.locator("#drawer, input, select")).toHaveCount(0);
+    await expect(page.locator("body")).not.toContainText(/client links|GitHub|token|customi[sz]e/i);
+  });
+}

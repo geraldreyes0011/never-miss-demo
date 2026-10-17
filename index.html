@@ -22,7 +22,6 @@
     <div class="grow"></div>
     <button class="icon-btn" id="btnMusic" type="button" aria-pressed="true" title="Background music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Music</span></button>
     <button class="icon-btn" id="btnVoice" type="button" aria-pressed="true" title="Voice-over"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on-only" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg><span>Voice</span></button>
-    <button class="icon-btn hide-sm" id="btnCustom" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Customize</button>
   </header>
 
   <main class="stage">
@@ -62,24 +61,6 @@
   </div>
 </div>
 
-<div class="scrim" id="scrim" hidden></div>
-<aside class="drawer" id="drawer" aria-label="Customize demo" inert>
-  <div class="row between"><h3 id="dTitle">Customize</h3><button class="btn" id="btnClose" type="button">Done</button></div>
-  <details class="qsec" id="quickSec" open>
-    <summary>Quick preview <span>just for this visit</span></summary>
-    <p id="modeNote"></p>
-    <div class="fld"><label for="inIndQ">Industry</label><div class="picker"><span class="pk-ic" aria-hidden="true"><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round'><path d='M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm9 16-4-4'/></svg></span><input type="text" id="inIndQ" class="pk-in" placeholder="Search: aircon, lawyer, nails…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inIndList"><ul class="pk-list" id="inIndList" role="listbox" hidden></ul><input type="hidden" id="inInd"></div></div>
-    <div class="fld"><label for="inCur">Currency</label><select id="inCur"></select></div>
-    <h4>Presented by</h4>
-    <div class="fld"><label for="inPres">Name</label><input type="text" id="inPres"></div>
-    <div class="fld"><label for="inPresLogo">Logo (optional)</label><input type="file" id="inPresLogo" accept="image/*"><div class="row wrap"><button class="btn" id="btnPresDefault" type="button">Default logo</button><button class="btn" id="btnPresText" type="button">Name only</button></div></div>
-    <h4>Business</h4>
-    <div class="fld"><label for="inBiz">Business name</label><input type="text" id="inBiz"></div>
-    <div class="fld"><label for="inLogo">Logo</label><div class="row wrap"><input type="file" id="inLogo" accept="image/*"><button class="btn" id="btnNoLogo" type="button">Remove</button></div></div>
-    <div class="fld"><label for="inColor">Brand colour</label><div class="sw" id="swatches"><input type="color" id="inColor"></div></div>
-    <button class="btn" id="btnReset" type="button">Reset</button>
-  </details>
-</aside>
 <audio id="voice" preload="auto" hidden></audio>
 <script type="module" src="/src/player/main.ts"></script>
 </body>
