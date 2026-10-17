@@ -1,0 +1,41 @@
+/* Design tokens shared by the client view and the admin (exact values from the reference :root). */
+:root {
+  --accent: #1d4ed8;
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #5b6b80;
+  --line: #e3e8ef;
+  --good: #15803d;
+  --goodsoft: #e7f7ec;
+  --scrim: rgba(15, 23, 42, 0.45);
+  --accentsoft: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  --shadow: 0 2px 6px rgba(15, 23, 42, 0.05), 0 18px 40px rgba(15, 23, 42, 0.08);
+  --f: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0f16;
+    --surface: #121823;
+    --ink: #e8ecf2;
+    --muted: #9aa8ba;
+    --line: #232c3b;
+    --good: #4ade80;
+    --goodsoft: rgba(74, 222, 128, 0.13);
+    --scrim: rgba(0, 0, 0, 0.6);
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 18px 40px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b0f16;
+  --surface: #121823;
+  --ink: #e8ecf2;
+  --muted: #9aa8ba;
+  --line: #232c3b;
+  --good: #4ade80;
+  --goodsoft: rgba(74, 222, 128, 0.13);
+  --scrim: rgba(0, 0, 0, 0.6);
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 18px 40px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}

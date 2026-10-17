@@ -1,0 +1,61 @@
+# Records voice-over for any story line that doesn't have a clip yet (Kokoro "af_heart"),
+# updates data/audio-map.json, removes clips nothing uses, then redeploys.
+# The voice always says "your business" (never a client's name), so one recording serves every client.
+name: Voice-over
+
+on:
+  push:
+    branches: [main]
+    paths: [data/demo.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: voice
+  cancel-in-progress: false
+
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python packages
+        run: pip install onnxruntime numpy
+      - name: ffmpeg and build tools
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg cmake build-essential
+      - name: Cache TTS (espeak-ng build + Kokoro model)
+        uses: actions/cache@v4
+        with:
+          path: ~/tts
+          key: tts-${{ runner.os }}-${{ hashFiles('tools/voice/setup_tts.sh') }}
+      - name: Set up TTS
+        run: bash tools/voice/setup_tts.sh
+      - name: Record missing voice clips
+        run: python tools/voice/voice_multi.py data/demo.json public/audio af_heart
+      - name: Commit changes
+        id: commit
+        run: |
+          git add -A public/audio data/audio-map.json
+          if git diff --cached --quiet; then
+            echo "Voice-over already up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(voice): update voice-over [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Redeploy the site
+        if: steps.commit.outputs.changed == 'true'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

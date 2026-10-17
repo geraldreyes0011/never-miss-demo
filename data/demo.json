@@ -1,0 +1,5407 @@
+{
+ "id": "never-miss",
+ "title": "Never Miss a Customer Demo",
+ "customer": "Maya",
+ "currency": "USD",
+ "presenter": {
+  "name": "Verdant Partners",
+  "logo": "verdant"
+ },
+ "link": "",
+ "intro": {
+  "kicker": "A 1-minute demo",
+  "say": "Here's how an AI assistant turns a missed call into a booked customer, without your team lifting a finger.",
+  "lede": "Follow one customer from an unanswered call to a booked visit. Every reply you see is sent by an AI assistant, automatically."
+ },
+ "outro": {
+  "kicker": "That's it",
+  "say": "Your AI assistant does all of this on its own, day and night, while your team focuses on customers.",
+  "voice": "And that's it. Your AI assistant does all of this on its own, day and night, while your team focuses on customers.",
+  "outcomes": [
+   {
+    "b": "No more missed customers",
+    "s": "Every unanswered call gets a reply in seconds."
+   },
+   {
+    "b": "Booked without phone tag",
+    "s": "Customers pick a time and get reminded on their own."
+   },
+   {
+    "b": "More reviews and repeat visits",
+    "s": "Follow-ups go out automatically."
+   }
+  ],
+  "alerts": [
+   {
+    "ic": "phone",
+    "t": "Missed calls texted back",
+    "small": "Always on"
+   },
+   {
+    "ic": "cal",
+    "t": "Bookings 24/7",
+    "small": "Always on"
+   },
+   {
+    "ic": "repeat",
+    "t": "Follow-ups on autopilot",
+    "small": "Always on"
+   }
+  ],
+  "cta": "Next: let's set this up for your business."
+ },
+ "order": [
+  "hvac",
+  "plumbing",
+  "roofing",
+  "electrical",
+  "remodeling",
+  "cleaning",
+  "landscaping",
+  "pest",
+  "solar",
+  "dental",
+  "medspa",
+  "chiro",
+  "therapy",
+  "vet",
+  "salon",
+  "gym",
+  "law",
+  "realestate",
+  "property",
+  "auto",
+  "restaurant"
+ ],
+ "industries": {
+  "hvac": {
+   "label": "HVAC (heating & cooling)",
+   "kw": "hvac aircon air con air conditioning ac a/c heating cooling furnace heat pump ventilation duct",
+   "business": {
+    "name": "CoolBreeze Heating & Air",
+    "accent": "#0369A1"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your tech was on a roof when the phone rang. Who called back?",
+    "sub": "When nobody answers, people often just call another HVAC company. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book service calls, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books service calls 24/7",
+     "Your team stays focused on the jobs on the schedule"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a broken air conditioner, but your technicians are all out on jobs.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another HVAC company.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My AC stopped blowing cold air. Can someone come today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the problem, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Sorry about that! Is the unit running but warm, or not turning on at all?"
+      ],
+      [
+       1.9,
+       "me",
+       "It runs, but the air is warm."
+      ],
+      [
+       2.4,
+       "ai",
+       "Got it. A diagnostic visit is <b>{p:89|1500}</b>, waived if you go ahead with the repair. A tech is free today."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Today<small>5:30 PM</small></div><div class='slot'>Tomorrow<small>8:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 5:30 PM · AC repair visit</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a service call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "4:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "An hour before, the AI lets her know the technician is on the way, so she's home and ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 4:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Mike from {biz} is on the way and arrives around 5:30 PM. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when Mike is 10 minutes away."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the repair, she leaves a five-star review. Six months later, the AI reminds her to book a tune-up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>AC fixed the same day. Fast, honest and friendly!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Six months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Time for your heating tune-up before winter ❄️ <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for next Tuesday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Maintenance visit booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "plumbing": {
+   "label": "Plumbing",
+   "kw": "plumbing plumber pipes pipe leak leaking drain clog blocked water heater toilet sewer burst",
+   "business": {
+    "name": "FlowRight Plumbing",
+    "accent": "#0284C7"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your plumber was under a sink when a customer called. Who answered?",
+    "sub": "When nobody answers, people often just call another plumber. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book jobs, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books jobs 24/7",
+     "Your team stays focused on the jobs in front of them"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a leaking water heater, but your plumbers are all out on jobs.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another plumber.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My water heater is leaking. Can you come today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the leak, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Sorry to hear that! Is it a slow drip or a lot of water? And is it gas or electric?"
+      ],
+      [
+       1.9,
+       "me",
+       "A steady drip. It's gas."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks! Turn off its water supply for now. A service visit is <b>{p:99|1500}</b>, and we can come today."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Today<small>5:30 PM</small></div><div class='slot'>Tomorrow<small>8:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 5:30 PM · Water heater repair</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked an urgent job"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "4:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "An hour before, the AI lets her know the plumber is on the way, so she's home and ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 4:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Jason from {biz} is on the way, arriving around 5:30 PM. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when Jason is 10 minutes away."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the fix, she leaves a five-star review. A year later, the AI reminds her to book a maintenance flush.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Came the same day and fixed it fast. Super professional!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "One year later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Your water heater is due for its yearly flush 🔧 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for Saturday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Maintenance job booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "roofing": {
+   "label": "Roofing",
+   "kw": "roofing roofer roof repair shingles storm damage gutters roof leak replacement hail",
+   "business": {
+    "name": "Summit Roofing Co.",
+    "accent": "#9A3412"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A storm hit and every homeowner called at once. Who called back?",
+    "sub": "When nobody answers, people often just call another roofer. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book inspections, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books inspections 24/7",
+     "Your team stays focused on the roofs they're working on"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a leak after last night's storm, but your crew is up on a roof.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another roofer.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My roof started leaking after the storm. Can someone take a look?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the damage, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "So sorry! Is water coming inside right now, and roughly how old is the roof?"
+      ],
+      [
+       1.9,
+       "me",
+       "A small leak in the bedroom. About 15 years old."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks. Our roof inspection is <b>free</b>, and we can help with your insurance claim. We have openings tomorrow."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Tomorrow<small>9:00 AM</small></div><div class='slot' data-tap='s'>Tomorrow<small>1:00 PM</small></div><div class='slot'>Fri<small>10:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Tomorrow, 1:00 PM · Free roof inspection</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked an inspection"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "11:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI lets her know the inspector is on the way, so she's home and ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tomorrow 11:00 AM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Dave arrives at 1:00 PM for your free roof inspection. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Dave will text you when he's close."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Homeowner confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the inspection, she leaves a five-star review. Two weeks later, the AI follows up, and she books the full job.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Quick inspection, honest advice, and they handled my insurance claim!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Two weeks later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Good news: your claim was approved 🎉 Ready to schedule your new roof? <a>Pick a date</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes! Let's do next Monday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Roof replacement booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "electrical": {
+   "label": "Electrical",
+   "kw": "electrical electrician wiring power outage breaker panel lighting ev charger outlets sparky",
+   "business": {
+    "name": "BrightWire Electric",
+    "accent": "#A16207"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your electrician was on a ladder. Who called the customer back?",
+    "sub": "When nobody answers, people often just call another electrician. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book jobs, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books jobs 24/7",
+     "Your team stays focused on the jobs on site"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about power going out in half her house, but your electricians are all out on jobs.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another electrician.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Half my house lost power. Can someone come today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the problem, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Sorry about that! Have you checked the breaker panel, and do you smell anything burning?"
+      ],
+      [
+       1.9,
+       "me",
+       "Breakers look fine. No smell."
+      ],
+      [
+       2.4,
+       "ai",
+       "Good, thanks. A service call is <b>{p:95|1500}</b>, and we have an electrician free today."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Today<small>5:30 PM</small></div><div class='slot'>Tomorrow<small>8:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 5:30 PM · Electrical repair</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a service call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "4:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "An hour before, the AI lets her know the electrician is on the way, so she's home and ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 4:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Ryan from {biz} is on the way, arriving around 5:30 PM. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when Ryan is 10 minutes away."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the repair, she leaves a five-star review. Months later, the AI offers a free quote, and she books again.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Found the problem fast and explained it clearly. Highly recommend!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Three months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Thinking about an EV charger or extra outlets? Get a free quote: <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes, a quote for an EV charger please ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "New quote requested"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "remodeling": {
+   "label": "Home remodeling & contractors",
+   "kw": "remodeling remodel renovation contractor construction kitchen bathroom home improvement builder handyman carpentry flooring",
+   "business": {
+    "name": "Keystone Home Remodeling",
+    "accent": "#78350F"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A homeowner wanted a kitchen quote. You were on site. Who answered?",
+    "sub": "When nobody answers, people often just call another contractor. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book estimates, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books estimates 24/7",
+     "Your team stays focused on the projects on site"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a kitchen remodel, but your team is out on a job site.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another contractor.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! We want to remodel our kitchen. Can you give us a quote?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the project, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "We'd love to help! How big is the kitchen, and do you have a budget in mind?"
+      ],
+      [
+       1.9,
+       "me",
+       "About 150 sq ft. Budget around {p:30000|800000}."
+      ],
+      [
+       2.4,
+       "ai",
+       "Great! Kitchens like yours usually run <b>{p:25000|700000} to {p:40000|1100000}</b>. The on-site estimate is <b>free</b>."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Sat<small>9:00 AM</small></div><div class='slot' data-tap='s'>Sat<small>11:00 AM</small></div><div class='slot'>Mon<small>4:00 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Saturday, 11:00 AM · Free on-site estimate</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked an estimate"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "6:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The day before, the AI confirms the visit and tells her who's coming, so she's ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Friday 6:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Tom, our project manager, visits tomorrow at 11:00 AM for your free estimate. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Tom will text you when he's on his way."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Homeowner confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the visit, she leaves a five-star review. Three days later, the AI sends the quote, and she signs on.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Clear estimate, no pressure, and they answered every question.</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Three days later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Your detailed quote is ready 📋 Want to lock in a start date? <a>View quote</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Looks great! Let's start next month ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Project signed"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "cleaning": {
+   "label": "Home cleaning",
+   "kw": "cleaning cleaners cleaner house cleaning maid janitorial deep clean move out housekeeping commercial cleaning",
+   "business": {
+    "name": "Sparkle Home Cleaning",
+    "accent": "#0891B2"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A customer wanted a quote while your team was cleaning. Who answered?",
+    "sub": "When nobody answers, people often just call another cleaner. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book cleanings, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books cleanings 24/7",
+     "Your team stays focused on the homes they're cleaning"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a deep clean before guests arrive, but your team is out cleaning homes.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another cleaner.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Can I book a deep clean this week? We have guests coming."
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her home, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Absolutely! How many bedrooms and bathrooms, and any pets?"
+      ],
+      [
+       1.9,
+       "me",
+       "3 bedrooms, 2 bathrooms. One dog."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks! A deep clean for your home is <b>{p:240|4500}</b>, and we bring all the supplies."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Thu<small>9:00 AM</small></div><div class='slot' data-tap='s'>Thu<small>1:00 PM</small></div><div class='slot'>Fri<small>9:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Thursday, 1:00 PM · Deep clean</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a cleaning"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "6:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The day before, the AI confirms the booking and tells her when the team arrives.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Wednesday 6:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your cleaners arrive tomorrow at 1:00 PM. Reply C to confirm or R to reschedule."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when the team is on the way."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the clean, she leaves a five-star review. Two weeks later, the AI offers a regular plan, and she signs up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>The house was spotless, and the team was lovely with our dog!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Two weeks later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Want to keep it this clean? Get 15% off a biweekly plan ✨ <a>Start plan</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes, every other Thursday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Recurring client signed up"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "landscaping": {
+   "label": "Landscaping & lawn care",
+   "kw": "landscaping landscaper lawn care lawn mowing gardening gardener yard tree trimming hedges lawn service",
+   "business": {
+    "name": "GreenEdge Landscaping",
+    "accent": "#4D7C0F"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A homeowner called for a quote while you were mowing. Who called back?",
+    "sub": "When nobody answers, people often just call another landscaper. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book jobs, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books jobs 24/7",
+     "Your team stays focused on the yards they're working on"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about an overgrown backyard, but your crew is out mowing.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another landscaper.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My backyard is overgrown. Can you clean it up and quote weekly mowing?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her yard, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Sure! Roughly how big is the yard, and do you need hedges trimmed too?"
+      ],
+      [
+       1.9,
+       "me",
+       "Medium size. Yes, hedges too."
+      ],
+      [
+       2.4,
+       "ai",
+       "Great. A full cleanup is about <b>{p:350|6000}</b>, and weekly mowing starts at <b>{p:45|800}</b>."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Sat<small>8:00 AM</small></div><div class='slot' data-tap='s'>Sat<small>10:00 AM</small></div><div class='slot'>Mon<small>9:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Saturday, 10:00 AM · Yard cleanup</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a job"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "5:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The day before, the AI confirms the job and tells her when the crew arrives.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Friday 5:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Our crew arrives tomorrow at 10:00 AM for your yard cleanup. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when the crew is on the way."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the cleanup, she leaves a five-star review. The AI offers weekly mowing, and she signs up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>The yard looks amazing! On time and super tidy.</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Next week"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Ready to start your weekly mowing plan? 🌿 <a>Start plan</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes please, every Saturday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Weekly plan signed up"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "pest": {
+   "label": "Pest control",
+   "kw": "pest control exterminator termites termite ants rodents rats mice bugs cockroach bed bugs mosquito",
+   "business": {
+    "name": "ShieldGuard Pest Control",
+    "accent": "#65A30D"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A customer found ants and called during a job. Who called back?",
+    "sub": "When nobody answers, people often just call another pest company. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book treatments, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books treatments 24/7",
+     "Your team stays focused on the jobs in progress"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about ants in the kitchen, but your technicians are out on treatments.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another pest company.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! We have ants all over the kitchen. Can you help?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the problem, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "We sure can! Are they small black ants or larger ones, and any kids or pets at home?"
+      ],
+      [
+       1.9,
+       "me",
+       "Small black ants. Two kids and a cat."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks! We'll use a family- and pet-safe treatment. A visit is <b>{p:129|2000}</b>, with a free follow-up."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Tomorrow<small>9:00 AM</small></div><div class='slot' data-tap='s'>Tomorrow<small>1:00 PM</small></div><div class='slot'>Thu<small>10:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Tomorrow, 1:00 PM · Ant treatment</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a treatment"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "11:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI lets her know the technician is on the way, so she's home and ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tomorrow 11:00 AM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your technician arrives at 1:00 PM today. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ We'll text you when they're 10 minutes away."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the treatment, she leaves a five-star review. Three months later, the AI books her seasonal visit.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Ants gone in two days, and they were careful around the kids!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Three months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Time for your seasonal protection visit 🛡️ <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for next week ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Quarterly plan booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "solar": {
+   "label": "Solar installers",
+   "kw": "solar solar panels installer renewable energy battery pv electricity bill power bill",
+   "business": {
+    "name": "SunPeak Solar",
+    "accent": "#D97706"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A homeowner asked about solar while you were on a roof. Who answered?",
+    "sub": "When nobody answers, people often just call another installer. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book consultations, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books consultations 24/7",
+     "Your team stays focused on the installs on the schedule"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about going solar, but your team is out on an installation.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another installer.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! How much would solar cost for my house?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her home and power bill, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Great question! What's your monthly power bill, roughly, and do you own your home?"
+      ],
+      [
+       1.9,
+       "me",
+       "About {p:200|6000} a month. Yes, we own it."
+      ],
+      [
+       2.4,
+       "ai",
+       "Homes like yours are often a great fit. A <b>free</b> consultation shows your exact cost and savings."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Thu<small>10:00 AM</small></div><div class='slot' data-tap='s'>Thu<small>4:00 PM</small></div><div class='slot'>Sat<small>11:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Thursday, 4:00 PM · Free solar consultation</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a consultation"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "2:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder and tells her what to have ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Thursday 2:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your free solar consultation is today at 4:00 PM. Have a recent power bill handy. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Our advisor will call you right on time."
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Homeowner confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the consultation, she leaves a five-star review. Four days later, the AI sends her design, and she signs on.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Clear numbers, no pressure. Excited for our panels!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Four days later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Your custom solar design is ready ☀️ <a>View proposal</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Looks great. Let's move forward ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Solar project signed"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "dental": {
+   "label": "Dental clinic",
+   "kw": "dental dentist dental clinic teeth tooth orthodontist braces oral whitening",
+   "business": {
+    "name": "Bright Smile Dental",
+    "accent": "#0F766E"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your phone rang during a filling. Who called them back?",
+    "sub": "When nobody answers, people often just call the next clinic. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book patients, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books patients 24/7",
+     "Your team stays focused on patients in the chair"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a toothache, but your whole team is busy with patients.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call the next clinic.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! I have a toothache. Can I see a dentist today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the pain, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "So sorry to hear that! Is it a sharp pain or a dull ache?"
+      ],
+      [
+       1.9,
+       "me",
+       "Sharp, upper left side."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks, {cust}. An exam and check-up is <b>{p:99|800}</b>. We have openings today."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Today<small>5:30 PM</small></div><div class='slot'>Tomorrow<small>9:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 5:30 PM with Dr. Santos</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a new patient"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "3:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 3:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you at 5:30 PM at {biz}. Reply C to confirm or R to reschedule."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Patient confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The next day, she leaves a five-star review. Six months later, the AI reminds her to book a cleaning.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Got seen the same day I called. Gentle, friendly team!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Six months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! It's time for your cleaning 🦷 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for March 12 ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Returning patient booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "medspa": {
+   "label": "Med spa & aesthetics",
+   "kw": "med spa medspa aesthetics aesthetic botox filler fillers skin clinic beauty clinic laser cosmetic dermatology facial injectables",
+   "business": {
+    "name": "Lumière Med Spa",
+    "accent": "#BE185D"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A client asked about filler during a treatment. Who answered?",
+    "sub": "When nobody answers, people often just call another med spa. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book treatments, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books treatments 24/7",
+     "Your team stays focused on clients in the treatment room"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about lip filler, but your injectors are with clients.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another med spa.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! How much is lip filler? I've never had it before."
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her goals, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Welcome! First time is exciting 😊 Are you looking for subtle volume or more definition?"
+      ],
+      [
+       1.9,
+       "me",
+       "Subtle, natural look."
+      ],
+      [
+       2.4,
+       "ai",
+       "Perfect. Lip filler starts at <b>{p:550|9000}</b>, and your first consultation is <b>free</b>."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Thu<small>11:00 AM</small></div><div class='slot' data-tap='s'>Thu<small>3:00 PM</small></div><div class='slot'>Sat<small>10:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Thursday, 3:00 PM · Free consultation with Dr. Lee</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a new client"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "6:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The day before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Wednesday 6:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you tomorrow at 3:00 PM at {biz}. Please arrive 10 minutes early. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Client confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her treatment, she leaves a five-star review. Five months later, the AI reminds her to book a top-up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>So natural, and the team made me feel completely at ease!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Five months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! It's about time for a top-up 💋 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for next Friday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Returning client booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "chiro": {
+   "label": "Chiropractic & physiotherapy",
+   "kw": "chiropractor chiropractic physio physiotherapy physical therapy back pain massage therapy rehab sports injury osteopath",
+   "business": {
+    "name": "Align Chiropractic & Physio",
+    "accent": "#047857"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A patient in pain called during an adjustment. Who called back?",
+    "sub": "When nobody answers, people often just call another clinic. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book patients, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books patients 24/7",
+     "Your team stays focused on patients on the table"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about lower back pain, but your team is busy treating patients.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another clinic.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My lower back has been hurting for a week. Can I come in?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the pain, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Sorry to hear that! Did it start after an injury, or did it come on slowly?"
+      ],
+      [
+       1.9,
+       "me",
+       "Slowly. I sit at a desk all day."
+      ],
+      [
+       2.4,
+       "ai",
+       "That's really common. Your first visit with an assessment is <b>{p:79|1200}</b>, and we have openings this week."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Tomorrow<small>8:00 AM</small></div><div class='slot' data-tap='s'>Tomorrow<small>12:30 PM</small></div><div class='slot'>Thu<small>5:00 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Tomorrow, 12:30 PM with Dr. Patel</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a new patient"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "10:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tomorrow 10:30 AM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you at 12:30 PM at {biz}. Wear comfy clothes. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Patient confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her visit, she leaves a five-star review. A week later, the AI checks in, and she books her follow-up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>My back feels so much better already. Friendly and professional!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "One week later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! How's your back? Your next visit keeps the progress going 💪 <a>Book follow-up</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for Thursday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Follow-up visit booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "therapy": {
+   "label": "Therapy & counseling",
+   "kw": "therapy therapist counseling counselling counselor psychology psychologist mental health psychiatrist anxiety wellness",
+   "business": {
+    "name": "Clear Path Counseling",
+    "accent": "#4338CA"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Someone reached out for help during a session. Who answered?",
+    "sub": "When nobody answers, people often just call another practice. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book first sessions, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books first sessions 24/7",
+     "Your team stays focused on the clients in session"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about starting therapy, but your therapists are in sessions.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another practice.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.2,
+       "sys",
+       "🔒 Private & secure · In crisis? Call your local emergency line"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi, I'd like to start therapy for anxiety. Are you taking new clients?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI kindly asks a few simple questions and explains sessions and fees, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Yes, we are, and reaching out is a great first step. Do you prefer in-person or online sessions?"
+      ],
+      [
+       1.9,
+       "me",
+       "Online, in the evenings if possible."
+      ],
+      [
+       2.4,
+       "ai",
+       "We have evening online sessions. A 50-minute session is <b>{p:140|2500}</b>, and we can check your insurance."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Tue<small>6:00 PM</small></div><div class='slot' data-tap='s'>Wed<small>7:00 PM</small></div><div class='slot'>Thu<small>6:00 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Wednesday, 7:00 PM · Online session with Dr. Lin</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a new client"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "5:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with her private video link, so she's ready.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Wednesday 5:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your online session is today at 7:00 PM. Here's your private video link: <a>Join session</a>. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Your intake form is here if you haven't finished it: <a>Open form</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Client confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Ongoing care",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her first session, the AI makes it easy to book the next one, and she sets up weekly sessions.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "After the session"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thank you for your session today. Would you like to book your next one?"
+      ],
+      [
+       1.8,
+       "me",
+       "Yes, same time every week ✓"
+      ],
+      [
+       2.3,
+       "them",
+       "Done! Weekly on Wednesdays at 7:00 PM 🗓️"
+      ],
+      [
+       2.7,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Weekly sessions booked"
+       }
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "shield",
+        "t": "Private and secure"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "vet": {
+   "label": "Veterinary clinic",
+   "kw": "veterinary vet veterinarian animal hospital pet clinic dog cat pets animal care",
+   "business": {
+    "name": "Happy Paws Vet Clinic",
+    "accent": "#C2410C"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A worried pet owner called during surgery. Who called them back?",
+    "sub": "When nobody answers, people often just call another vet. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book appointments, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books appointments 24/7",
+     "Your team stays focused on the pets in their care"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about her dog not eating, but your vets are busy with patients.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another vet.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My dog hasn't eaten since yesterday. Can a vet see him today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her dog, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Oh no, poor pup! Is he vomiting or acting tired, and how old is he?"
+      ],
+      [
+       1.9,
+       "me",
+       "A bit tired, no vomiting. He's 6."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thanks. We'd like to see him today. A sick visit is <b>{p:75|900}</b>."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Today<small>5:30 PM</small></div><div class='slot'>Tomorrow<small>9:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 5:30 PM with Dr. Kim</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a sick visit"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "3:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 3:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you and Max at 5:30 PM at {biz}. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Pet owner confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the visit, she leaves a five-star review. Months later, the AI reminds her it's time for vaccines.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>They saw Max the same day and were so gentle with him!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Max is due for his yearly vaccines 🐶 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for next Saturday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Vaccine visit booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "salon": {
+   "label": "Salon & spa",
+   "kw": "salon hair hairdresser hair stylist barber barbershop spa nails nail salon beauty massage lashes",
+   "business": {
+    "name": "Glow Studio Salon",
+    "accent": "#7C3AED"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your phone rang mid-haircut. Who called them back?",
+    "sub": "When nobody answers, people often just call another salon. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book clients, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books clients 24/7",
+     "Your team stays focused on clients in the chair"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a hair color appointment, but your stylists are busy with clients.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another salon.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Do you have a slot for hair color this week?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about the service, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Of course! Full color or highlights? And is your hair short, medium or long?"
+      ],
+      [
+       1.9,
+       "me",
+       "Balayage, medium length."
+      ],
+      [
+       2.4,
+       "ai",
+       "Lovely choice! Balayage for medium hair starts at <b>{p:180|3500}</b>, about 3 hours."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Thu<small>10:00 AM</small></div><div class='slot' data-tap='s'>Thu<small>1:00 PM</small></div><div class='slot'>Sat<small>9:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Thursday, 1:00 PM with Bea</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a new client"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "6:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "The day before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Wednesday 6:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you tomorrow at 1:00 PM at {biz}. Reply C to confirm or R to reschedule."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Client confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her visit, she leaves a five-star review. Eight weeks later, the AI reminds her to book a touch-up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Love my balayage! Booking was so easy.</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Eight weeks later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Time for a root touch-up? 💜 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for Saturday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Returning client booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "gym": {
+   "label": "Gym & fitness",
+   "kw": "gym fitness personal trainer training yoga pilates crossfit studio boxing martial arts",
+   "business": {
+    "name": "PulseFit Gym",
+    "accent": "#0E7490"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Someone called to join while you were coaching. Who called back?",
+    "sub": "When nobody answers, people often just call another gym. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book trial classes, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books trial classes 24/7",
+     "Your team stays focused on members on the floor"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about joining the gym, but your coaches are busy running a class.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another gym.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! How much is membership? I want to start this month."
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her goals, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Love that! What are your goals, and do you prefer mornings or evenings?"
+      ],
+      [
+       1.9,
+       "me",
+       "Lose weight. Evenings after work."
+      ],
+      [
+       2.4,
+       "ai",
+       "Perfect. Membership is <b>{p:59|2500}</b> a month, and your first class is <b>free</b>. Want to try one?"
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers class times, and {cust} books a free trial right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Mon<small>6:00 PM</small></div><div class='slot' data-tap='s'>Tue<small>7:00 PM</small></div><div class='slot'>Wed<small>6:30 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Free trial: Tuesday, 7:00 PM HIIT</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a free trial"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "5:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tuesday 5:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your free HIIT class at {biz} is tonight at 7:00 PM. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Trial confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her trial, she leaves a five-star review. The AI sends a member offer, and she signs up.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>The coaches are amazing, and the trial class hooked me!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "After the trial"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Loved the class? Join this week for 20% off your first month 💪 <a>Join now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "I'm in! Signing up ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "New member signed up"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "law": {
+   "label": "Law firm",
+   "kw": "law firm lawyer attorney legal personal injury family law accident divorce immigration estate solicitor",
+   "business": {
+    "name": "Harper & Cole Law",
+    "accent": "#1E3A8A"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "An injured client called while you were in court. Who answered?",
+    "sub": "When nobody answers, people often just call another law firm. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book consultations, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books consultations 24/7",
+     "Your team stays focused on their clients and cases"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a car accident, but your lawyers are in court and the front desk is on another line.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another law firm.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi, I was in a car accident last week. Can I talk to a lawyer?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks a few quick questions and explains how the free consultation works, just like your intake team would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "I'm sorry that happened. Were you injured, and was the other driver at fault?"
+      ],
+      [
+       1.9,
+       "me",
+       "Yes, my back is hurt. The other driver ran a red light."
+      ],
+      [
+       2.4,
+       "ai",
+       "Thank you for sharing. Your first consultation is <b>free</b>, and you don't pay unless we win your case."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers consultation times, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>4:00 PM</small></div><div class='slot' data-tap='s'>Tomorrow<small>10:00 AM</small></div><div class='slot'>Tomorrow<small>2:00 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Tomorrow, 10:00 AM · Free consultation with Attorney Cole</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a case consult"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "8:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tomorrow 8:00 AM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your free consultation with Attorney Cole is today at 10:00 AM. Please bring any photos or reports. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Client confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Stays updated",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After her consultation, she leaves a five-star review, and the AI keeps her updated as her case moves forward.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>They called me back right away and explained everything clearly.</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "During the case"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Quick update: we've filed your claim. We'll keep you posted at every step ⚖️"
+      ],
+      [
+       4.6,
+       "me",
+       "Thank you so much!"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Client kept updated"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "realestate": {
+   "label": "Real estate",
+   "kw": "real estate realtor broker agent homes house condo property sales buyers sellers listings",
+   "business": {
+    "name": "Northview Realty",
+    "accent": "#1D4ED8"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A buyer called while you were at a viewing. Who called back?",
+    "sub": "When nobody answers, people often just call another agent. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book viewings, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books viewings 24/7",
+     "Your team stays focused on closing deals"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a condo she saw online, but your agent is busy showing another property.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another agent.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Is the 2-bedroom condo downtown still available?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks what she's looking for, answers her questions and shares the price, just like your best agent would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Yes, it's available! Is it for living in or for investment? And what's your budget?"
+      ],
+      [
+       1.9,
+       "me",
+       "For living. Around {p:460000|8000000}."
+      ],
+      [
+       2.4,
+       "ai",
+       "Great fit! It's listed at <b>{p:450000|7800000}</b>, 64 sqm with parking. Want to see it?"
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers viewing times, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Sat<small>10:00 AM</small></div><div class='slot' data-tap='s'>Sat<small>2:00 PM</small></div><div class='slot'>Sun<small>11:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Viewing: Saturday, 2:00 PM with Carlo</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a viewing"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "12:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Saturday 12:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your condo viewing is today at 2:00 PM. Reply C to confirm or R to reschedule."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Buyer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the viewing, she leaves a five-star review. Next week, the AI sends new listings, and she books another viewing.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Carlo was super helpful. Smooth from the first message to the viewing!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Next week"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Two similar units just came in. Want to see them? <a>View listings</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes! Can I see the second one on Saturday?"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Second viewing booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "property": {
+   "label": "Property management",
+   "kw": "property management property manager rentals rental landlord apartments leasing tenants tenant hoa",
+   "business": {
+    "name": "Harbor Property Management",
+    "accent": "#334155"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "A renter called about your vacancy during a showing. Who answered?",
+    "sub": "When nobody answers, people often just call another listing. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book showings, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books showings 24/7",
+     "Your team stays focused on owners and tenants"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a two-bedroom apartment for rent, but your property manager is at another showing.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another listing.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Is the 2-bedroom apartment on Oak Street still available?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her move, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Yes, it is! When would you like to move in, and do you have any pets?"
+      ],
+      [
+       1.9,
+       "me",
+       "Next month. One small cat."
+      ],
+      [
+       2.4,
+       "ai",
+       "Great, cats are welcome! Rent is <b>{p:1650|25000}</b> a month, with a one-month deposit."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers showing times, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Tomorrow<small>5:00 PM</small></div><div class='slot' data-tap='s'>Tomorrow<small>6:00 PM</small></div><div class='slot'>Sat<small>10:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Tomorrow, 6:00 PM · Apartment showing</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a showing"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "4:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "Two hours before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Tomorrow 4:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your apartment showing is today at 6:00 PM. Reply C to confirm or R to reschedule."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Renter confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the showing, she leaves a five-star review, and the AI sends her the application, which she completes.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Easy to reach, quick answers, and the showing was right on time!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Same day"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Ready to apply? It takes 5 minutes 🏠 <a>Apply now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Done! Application submitted ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Rental application received"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "auto": {
+   "label": "Auto repair",
+   "kw": "auto repair mechanic car garage tires tyres body shop detailing brakes oil change service centre",
+   "business": {
+    "name": "TorqueWorks Auto",
+    "accent": "#BE123C"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your phone rang while you were under a car. Who called back?",
+    "sub": "When nobody answers, people often just call another shop. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book repairs, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books repairs 24/7",
+     "Your team stays focused on the cars in the shop"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about squeaky brakes, but your mechanics are busy under a car.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another shop.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! My brakes are squeaking. Can you check them today?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her car, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "We can help! What car do you drive, and is it squeaking or grinding?"
+      ],
+      [
+       1.9,
+       "me",
+       "A 2018 sedan. It squeaks when I stop."
+      ],
+      [
+       2.4,
+       "ai",
+       "Sounds like the brake pads. A brake check is <b>free</b>, and new pads start at <b>{p:180|2800}</b>."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open slots, and {cust} books right in the chat. It goes straight into your calendar.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Today<small>3:00 PM</small></div><div class='slot' data-tap='s'>Today<small>4:30 PM</small></div><div class='slot'>Tomorrow<small>8:00 AM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Today, 4:30 PM · Brake check</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a repair"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "3:30",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "An hour before, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Today 3:30 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! See you at 4:30 PM at {biz} for your brake check. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Customer confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After the repair, she leaves a five-star review. Five months later, the AI reminds her it's time for an oil change.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Fixed the same day, and they explained everything. Great service!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "Five months later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Your car is due for an oil change 🔧 <a>Book now</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Booked for Monday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Repeat service booked"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  "restaurant": {
+   "label": "Restaurant",
+   "kw": "restaurant cafe coffee shop food dining bar bistro catering eatery diner",
+   "business": {
+    "name": "Mesa Grill",
+    "accent": "#B45309"
+   },
+   "welcome": {
+    "tag": "Customer journey demo for {biz}",
+    "headline": "Your phone rang during the lunch rush. Who called back?",
+    "sub": "When nobody answers, people often just call another restaurant. See how an AI assistant can text back every missed call for {biz} in seconds, answer questions and book reservations, with no staff needed.",
+    "points": [
+     "Your AI assistant texts back every missed call",
+     "It answers questions and books reservations 24/7",
+     "Your team stays focused on guests on the floor"
+    ],
+    "cta": "Watch the 1-minute demo",
+    "note": "Turn your sound on · Presented by {presenter}"
+   },
+   "steps": [
+    {
+     "name": "Missed",
+     "time": "2:14",
+     "head": {
+      "type": "custom",
+      "html": "<div class='av' style='background:#0F172A'>☎</div><div><div class='t'>Phone</div><div class='s'>Recent calls</div></div>"
+     },
+     "say": "It's two in the afternoon. {cust} calls about a table for a birthday dinner, but your staff are busy with the lunch crowd.",
+     "ev": [
+      [
+       0.3,
+       "html",
+       "<div class='card' style='text-align:center;padding:22px 12px'><div class='av' style='margin:0 auto 10px;width:58px;height:58px;font-size:22px;background-color:{accent}'>{bizmark}</div><b class='big'>{biz}</b><div class='mut' style='margin-top:4px'>Calling…</div></div>"
+      ],
+      [
+       2.4,
+       "html",
+       "<div class='card warn'><div class='row between'><b style='color:#B45309'>✕ No answer</b><span class='mut'>2:14 PM</span></div><div class='mut'>Call to {biz} · 0:32</div></div>"
+      ],
+      [
+       3.6,
+       "alert",
+       {
+        "ic": "phone",
+        "t": "AI assistant caught the call"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "AI texts back",
+     "time": "2:14",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "Within seconds, your AI assistant texts her back automatically. No staff needed, and she doesn't call another restaurant.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "🤖 Sent automatically by AI assistant"
+      ],
+      [
+       0.6,
+       "them",
+       "Hi! This is the {biz} AI assistant 😊 Sorry we missed your call. How can I help?"
+      ],
+      [
+       1.6,
+       "alert",
+       {
+        "ic": "bolt",
+        "t": "AI texted back in 5 seconds"
+       }
+      ],
+      [
+       3.0,
+       "me",
+       "Hi! Can I book a table for 8 on Saturday?"
+      ]
+     ]
+    },
+    {
+     "name": "AI answers",
+     "time": "2:15",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI asks about her party, answers her questions and shares the price, just like your front desk would.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Happy to help! What time, and is it a special occasion?"
+      ],
+      [
+       1.9,
+       "me",
+       "7 PM. It's my mom's birthday 🎂"
+      ],
+      [
+       2.4,
+       "ai",
+       "Lovely! We'll set up a birthday table. Set menus start at <b>{p:45|950}</b> per person."
+      ],
+      [
+       3.9,
+       "alert",
+       {
+        "ic": "chat",
+        "t": "AI answered, no staff needed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Booked",
+     "time": "2:16",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant · replies instantly"
+     },
+     "say": "The AI offers open times, and {cust} books right in the chat. It goes straight into your reservations.",
+     "ev": [
+      [
+       0.2,
+       "ai",
+       "Here are the next openings. Tap one to book:"
+      ],
+      [
+       1.5,
+       "html",
+       "<div class='card'><b>Choose a time</b><div class='slots'><div class='slot'>Sat<small>6:30 PM</small></div><div class='slot' data-tap='s'>Sat<small>7:00 PM</small></div><div class='slot'>Sat<small>8:00 PM</small></div></div></div>"
+      ],
+      [
+       3.0,
+       "tap",
+       "s"
+      ],
+      [
+       3.5,
+       "html",
+       "<div class='card ok'><div class='okl'>✓ You're booked</div><b>Saturday, 7:00 PM · Table for 8</b><div class='mut'>{biz} · Added to your calendar</div></div>"
+      ],
+      [
+       3.8,
+       "alert",
+       {
+        "ic": "cal",
+        "t": "AI booked a table for 8"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Reminded",
+     "time": "3:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "On the day, the AI sends a reminder with directions, so she shows up on time.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Saturday 3:00 PM"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}! Your table for 8 at {biz} is ready at 7:00 PM tonight. Reply C to confirm."
+      ],
+      [
+       2.0,
+       "me",
+       "C"
+      ],
+      [
+       2.4,
+       "them",
+       "Confirmed ✓ Here's how to find us: <a>Open in Maps</a>"
+      ],
+      [
+       2.8,
+       "alert",
+       {
+        "ic": "check",
+        "t": "Reservation confirmed"
+       }
+      ]
+     ]
+    },
+    {
+     "name": "Comes back",
+     "time": "10:00",
+     "head": {
+      "type": "sms",
+      "sub": "AI assistant"
+     },
+     "say": "After dinner, she leaves a five-star review. A month later, the AI invites her back, and she books again.",
+     "ev": [
+      [
+       0.3,
+       "sys",
+       "Next day"
+      ],
+      [
+       0.5,
+       "them",
+       "Hi {cust}, thanks for choosing {biz}! Would you leave us a quick review?"
+      ],
+      [
+       1.6,
+       "html",
+       "<div class='card'><div class='stars' style='font-size:17px'>★★★★★</div><div style='margin-top:4px'>Amazing food, and they surprised my mom with a cake!</div><div class='mut' style='margin-top:4px'>{cust} · Google review</div></div>"
+      ],
+      [
+       2.0,
+       "alert",
+       {
+        "ic": "star",
+        "t": "New 5-star review"
+       }
+      ],
+      [
+       3.2,
+       "sys",
+       "One month later"
+      ],
+      [
+       3.4,
+       "them",
+       "Hi {cust}! Celebrating again? Book this month for a free dessert 🍰 <a>Reserve</a>"
+      ],
+      [
+       4.6,
+       "me",
+       "Yes! Table for 4 on Friday ✓"
+      ],
+      [
+       5.0,
+       "alert",
+       {
+        "ic": "repeat",
+        "t": "Repeat guest booked"
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ }
+}

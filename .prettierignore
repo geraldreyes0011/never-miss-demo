@@ -1,0 +1,12 @@
+dist
+reference
+data
+public
+tools
+package-lock.json
+test-results
+playwright-report
+*.md
+index.html
+admin/index.html
+.github
