@@ -110,9 +110,13 @@ function checkClient(at: string, c: Partial<Client>, needSlug: boolean) {
   if (needSlug && !c.ind) err(`${at}: needs an industry`);
   if (c.cur && !isCurrency(c.cur)) err(`${at}: unknown currency "${c.cur}"`);
   if (c.accent && !HEX.test(c.accent)) err(`${at}: accent must be a #RRGGBB colour`);
-  if (c.logo && !c.logo.startsWith("data:")) {
-    if (!/^logos\/[\w.-]+$/.test(c.logo)) err(`${at}: logo must be "logos/<file>" or a data: URI`);
-    else if (!existsSync(resolve(root, "public", c.logo))) err(`${at}: public/${c.logo} missing`);
+  for (const [field, v] of [
+    ["logo", c.logo],
+    ["presLogo", c.presLogo],
+  ] as const) {
+    if (!v || v.startsWith("data:")) continue;
+    if (!/^logos\/[\w.-]+$/.test(v)) err(`${at}: ${field} must be "logos/<file>" or a data: URI`);
+    else if (!existsSync(resolve(root, "public", v))) err(`${at}: public/${v} missing`);
   }
 }
 if (!Array.isArray(clients)) err("clients.json must be an array");

@@ -172,8 +172,9 @@ function Admin({ gh, signOut }: { gh: GitHub; signOut: (notice?: string) => void
   const api = useMemo<AdminApi | null>(() => {
     if (!content) return null;
     const { demo, audio } = content;
-    const remember = (path: string | null, d: Draft) => {
-      if (path && d.upload) logoCache.current.set(path, d.upload.dataUrl);
+    /** Fresh uploads aren't deployed yet, so show the in-memory image for their new paths. */
+    const remember = (path: string | null | undefined, up: Draft["upload"]) => {
+      if (path && up) logoCache.current.set(path, up.dataUrl);
     };
     return {
       demo,
@@ -206,6 +207,7 @@ function Admin({ gh, signOut }: { gh: GitHub; signOut: (notice?: string) => void
             accent: draft.accent,
             pres: draft.pres.trim(),
             logo: draft.upload ? draft.upload.dataUrl : draft.logo,
+            presLogo: draft.presUpload ? draft.presUpload.dataUrl : draft.presLogo,
           };
           const has = cur.clients.some((x) => x.slug === s);
           optimistic = {
@@ -215,7 +217,8 @@ function Admin({ gh, signOut }: { gh: GitHub; signOut: (notice?: string) => void
         }
         const r = await run(optimistic, "Couldn't save", () => saveClient(gh, demo, draft, slug));
         if (!r) return null;
-        remember(r.client.logo, draft);
+        remember(r.client.logo, draft.upload);
+        remember(r.client.presLogo, draft.presUpload);
         if (slug) toast("ok", `Saved “${r.client.name}”. It's live in about a minute.`);
         else {
           const copied = await copyText(linkFor(r.client.slug));
@@ -244,13 +247,15 @@ function Admin({ gh, signOut }: { gh: GitHub; signOut: (notice?: string) => void
                     accent: draft.accent,
                     pres: draft.pres.trim(),
                     logo: draft.upload ? draft.upload.dataUrl : draft.logo,
+                    presLogo: draft.presUpload ? draft.presUpload.dataUrl : draft.presLogo,
                   }
                 : null,
             }
           : null;
         const r = await run(optimistic, "Couldn't save the general link", () => saveGeneral(gh, draft));
         if (r) {
-          remember(r.state.general?.logo || null, draft as Draft);
+          remember(r.state.general?.logo, draft?.upload);
+          remember(r.state.general?.presLogo, draft?.presUpload);
           toast("ok", draft ? "General link saved." : "General link reset to each industry's example.");
         }
         return !!r;

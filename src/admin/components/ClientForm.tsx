@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CURRENCY_CODES, currencyLabel } from "../../shared/currency";
 import type { Demo } from "../../shared/types";
-import { ImageError, processLogo } from "../images";
+import { ImageError, processLogo, type ProcessedLogo } from "../images";
 import type { Draft } from "../ops";
 import { Icon } from "./Icon";
 import { IndustryPicker } from "./IndustryPicker";
@@ -15,6 +15,7 @@ export function ClientForm({
   draft,
   onChange,
   logoSrc,
+  presLogoSrc,
   general,
   nameError,
   nameRef,
@@ -24,32 +25,17 @@ export function ClientForm({
   onChange: (patch: Partial<Draft>) => void;
   /** Resolved URL of the current logo (stored or uploaded). */
   logoSrc: string | null;
+  /** Resolved URL of the presenter logo (stored or uploaded), or null. */
+  presLogoSrc: string | null;
   general?: boolean;
   nameError?: string;
   nameRef?: React.Ref<HTMLInputElement>;
 }) {
-  const [logoErr, setLogoErr] = useState("");
-  const [processing, setProcessing] = useState(false);
-  const [drag, setDrag] = useState(false);
   const [hex, setHex] = useState(draft.accent);
-  const fileRef = useRef<HTMLInputElement>(null);
   useEffect(() => setHex(draft.accent), [draft.accent]);
   const example = demo.industries[draft.ind]?.business.name || "";
   const presIsDefault = draft.pres.trim() === demo.presenter.name;
 
-  async function take(file: File | undefined) {
-    if (!file) return;
-    setLogoErr("");
-    setProcessing(true);
-    try {
-      onChange({ upload: await processLogo(file) });
-    } catch (e) {
-      setLogoErr(e instanceof ImageError ? e.message : "That image couldn't be processed. Try another file.");
-    } finally {
-      setProcessing(false);
-      if (fileRef.current) fileRef.current.value = "";
-    }
-  }
   const setAccent = (c: string) => {
     setHex(c);
     onChange({ accent: c });
@@ -153,67 +139,13 @@ export function ClientForm({
         </div>
       </fieldset>
 
-      <div className="field">
-        <span className="label" id="f-logo-lbl">
-          Logo
-        </span>
-        <div
-          className={`dropzone${drag ? " drag" : ""}`}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDrag(true);
-          }}
-          onDragLeave={() => setDrag(false)}
-          onDrop={(e) => {
-            e.preventDefault();
-            setDrag(false);
-            take(e.dataTransfer.files[0]);
-          }}
-        >
-          <div className="logo-preview" aria-hidden={!logoSrc}>
-            {processing ? (
-              <Spinner label="Processing logo" />
-            ) : logoSrc ? (
-              <img src={logoSrc} alt="Logo preview" />
-            ) : (
-              <Icon name="upload" />
-            )}
-          </div>
-          <div className="dz-text">
-            <b>Drop a logo here</b>
-            <span>
-              or{" "}
-              <button type="button" className="linkish" onClick={() => fileRef.current?.click()}>
-                browse
-              </button>{" "}
-              · PNG, JPG, WebP or SVG. Resized to 256 px.
-            </span>
-          </div>
-          {logoSrc && (
-            <button
-              type="button"
-              className="btn sm ghost"
-              onClick={() => onChange({ logo: null, upload: null })}
-            >
-              Remove
-            </button>
-          )}
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/*"
-            className="sr-only"
-            aria-labelledby="f-logo-lbl"
-            onChange={(e) => take(e.target.files?.[0])}
-            tabIndex={-1}
-          />
-        </div>
-        {logoErr && (
-          <p className="field-err" role="alert">
-            {logoErr}
-          </p>
-        )}
-      </div>
+      <LogoField
+        id="f-logo"
+        label="Logo"
+        src={logoSrc}
+        onUpload={(upload) => onChange({ upload })}
+        onRemove={() => onChange({ logo: null, upload: null })}
+      />
 
       <div className="field">
         <label htmlFor="f-pres">Presented by</label>
@@ -227,22 +159,129 @@ export function ClientForm({
           onChange={(e) => onChange({ pres: e.target.value })}
         />
         <p className="hint" id="f-pres-hint">
-          {presIsDefault ? (
-            <>Shows the {demo.presenter.name} logo.</>
+          {presLogoSrc ? (
+            <>Your presenter logo below replaces the name at the top of the demo.</>
+          ) : presIsDefault ? (
+            <>Shows the {demo.presenter.name} logo. Upload your own below to replace it.</>
           ) : (
             <>
-              Shows as a wordmark: “PRESENTED BY {draft.pres.trim() || "…"}”.{" "}
+              Shows as text: “PRESENTED BY {draft.pres.trim() || "…"}”. Upload a logo below, or{" "}
               <button
                 type="button"
                 className="linkish"
                 onClick={() => onChange({ pres: demo.presenter.name })}
               >
-                Use {demo.presenter.name}
+                use {demo.presenter.name}
               </button>
+              .
             </>
           )}
         </p>
       </div>
+
+      <LogoField
+        id="f-pres-logo"
+        label="Presenter logo (optional)"
+        src={presLogoSrc}
+        onUpload={(presUpload) => onChange({ presUpload })}
+        onRemove={() => onChange({ presLogo: null, presUpload: null })}
+        hint="Shown top-left of the demo, e.g. your own logo or signature."
+      />
+    </div>
+  );
+}
+
+/** Drag-and-drop or browse for an image; resized in the browser to 256 px WebP. */
+function LogoField({
+  id,
+  label,
+  src,
+  onUpload,
+  onRemove,
+  hint,
+}: {
+  id: string;
+  label: string;
+  src: string | null;
+  onUpload: (p: ProcessedLogo) => void;
+  onRemove: () => void;
+  hint?: string;
+}) {
+  const [err, setErr] = useState("");
+  const [processing, setProcessing] = useState(false);
+  const [drag, setDrag] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
+  async function take(file: File | undefined) {
+    if (!file) return;
+    setErr("");
+    setProcessing(true);
+    try {
+      onUpload(await processLogo(file));
+    } catch (e) {
+      setErr(e instanceof ImageError ? e.message : "That image couldn't be processed. Try another file.");
+    } finally {
+      setProcessing(false);
+      if (fileRef.current) fileRef.current.value = "";
+    }
+  }
+  return (
+    <div className="field">
+      <span className="label" id={`${id}-lbl`}>
+        {label}
+      </span>
+      <div
+        className={`dropzone${drag ? " drag" : ""}`}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDrag(true);
+        }}
+        onDragLeave={() => setDrag(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setDrag(false);
+          take(e.dataTransfer.files[0]);
+        }}
+      >
+        <div className="logo-preview" aria-hidden={!src}>
+          {processing ? (
+            <Spinner label="Processing image" />
+          ) : src ? (
+            <img src={src} alt={`${label} preview`} />
+          ) : (
+            <Icon name="upload" />
+          )}
+        </div>
+        <div className="dz-text">
+          <b>Drop an image here</b>
+          <span>
+            or{" "}
+            <button type="button" className="linkish" onClick={() => fileRef.current?.click()}>
+              browse
+            </button>{" "}
+            · PNG, JPG, WebP or SVG. {hint || "Resized to 256 px."}
+          </span>
+        </div>
+        {src && (
+          <button type="button" className="btn sm ghost" onClick={onRemove}>
+            Remove
+          </button>
+        )}
+        <input
+          ref={fileRef}
+          id={id}
+          type="file"
+          accept="image/*"
+          className="sr-only"
+          aria-labelledby={`${id}-lbl`}
+          onChange={(e) => take(e.target.files?.[0])}
+          tabIndex={-1}
+        />
+      </div>
+      {err && (
+        <p className="field-err" role="alert">
+          {err}
+        </p>
+      )}
     </div>
   );
 }

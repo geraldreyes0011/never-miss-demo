@@ -79,6 +79,8 @@ export interface Client {
   pres: string;
   /** "logos/<file>.webp" path, or a legacy data: URI. */
   logo: string | null;
+  /** Optional presenter logo ("logos/<file>.webp") shown instead of the Verdant logo or the name wordmark. */
+  presLogo?: string | null;
 }
 
 export type General = Omit<Client, "slug"> | null;

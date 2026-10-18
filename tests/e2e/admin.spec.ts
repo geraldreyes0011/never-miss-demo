@@ -2,6 +2,9 @@ import { expect, test, type Page } from "@playwright/test";
 import { resolve } from "node:path";
 import { FakeGitHub } from "./fake-github";
 
+/** Client slugs in the repo before a test runs (the real data/clients.json). */
+const existing = () => new FakeGitHub().json("data/clients.json").map((c: any) => c.slug as string);
+
 const LOGO = resolve(import.meta.dirname, "../../public/logos/michelle-baratt-psychology-72daf16d.webp");
 
 async function signIn(page: Page, gh: FakeGitHub, token = gh.token) {
@@ -50,8 +53,12 @@ test("sign in, create a client with a logo, change its industry, delete it: one 
   await ind.fill("teeth whitening");
   await page.keyboard.press("Enter");
   await expect(ind).toHaveValue("Dental clinic");
-  await panel.locator('input[type="file"]').setInputFiles(LOGO);
+  await panel.locator("#f-logo").setInputFiles(LOGO);
   await expect(panel.getByAltText("Logo preview")).toBeVisible();
+  // Presenter logo replaces the Verdant logo in the demo header.
+  await panel.locator("#f-pres-logo").setInputFiles(LOGO);
+  await expect(panel.getByAltText("Presenter logo (optional) preview")).toBeVisible();
+  await expect(panel.frameLocator("iframe").locator(".pres img")).toBeVisible();
   // Live preview shows the unsaved name.
   await expect(panel.frameLocator("iframe").locator("#cname")).toHaveText("Joy Dental Clinic");
   await panel.getByRole("button", { name: "Create client link" }).click();
@@ -62,7 +69,11 @@ test("sign in, create a client with a logo, change its industry, delete it: one 
   expect(gh.recorded).toHaveLength(1);
   const create = gh.recorded[0];
   expect(create.message).toBe('admin: add client "Joy Dental Clinic"');
-  const logoEntry = create.entries.find((e) => e.path.startsWith("public/logos/"));
+  const logoEntry = create.entries.find((e) =>
+    /^public\/logos\/joy-dental-clinic-[0-9a-f]{8}\./.test(e.path),
+  );
+  const presEntry = create.entries.find((e) => e.path.includes("-presenter-"));
+  expect(presEntry?.path).toMatch(/^public\/logos\/joy-dental-clinic-presenter-[0-9a-f]{8}\.webp$/);
   expect(logoEntry?.path).toMatch(/^public\/logos\/joy-dental-clinic-[0-9a-f]{8}\.webp$/);
   expect(logoEntry?.content?.base64?.length).toBeGreaterThan(100);
   const clients1 = gh.json("data/clients.json");
@@ -72,8 +83,9 @@ test("sign in, create a client with a logo, change its industry, delete it: one 
     ind: "dental",
     pres: "Verdant Partners",
     logo: logoEntry!.path.slice("public/".length),
+    presLogo: presEntry!.path.slice("public/".length),
   });
-  expect(clients1.map((c: any) => c.slug)).toEqual(["michelle-baratt-psychology", "joy-dental-clinic"]);
+  expect(clients1.map((c: any) => c.slug)).toEqual([...existing(), "joy-dental-clinic"]);
   expect(gh.file("data/clients.json")!.text).toMatch(/^\[\n \{\n {2}"slug"/); // 1-space indent
   expect(gh.refUpdates).toBe(1);
 
@@ -110,9 +122,10 @@ test("sign in, create a client with a logo, change its industry, delete it: one 
     expect.arrayContaining([
       expect.objectContaining({ path: "data/clients.json" }),
       { path: `public/${joy.logo}`, sha: null, content: undefined },
+      { path: `public/${joy.presLogo}`, sha: null, content: undefined },
     ]),
   );
-  expect(gh.json("data/clients.json").map((c: any) => c.slug)).toEqual(["michelle-baratt-psychology"]);
+  expect(gh.json("data/clients.json").map((c: any) => c.slug)).toEqual(existing());
   expect(gh.file(`public/${joy.logo}`)).toBeUndefined();
   expect(gh.refUpdates).toBe(3);
   expect(errors).toEqual([]);
@@ -145,7 +158,7 @@ test("a concurrent save is merged by slug and retried once", async ({ page }) =>
   await expect(page.getByText("Client saved. Link copied.")).toBeVisible();
   expect(gh.refUpdates).toBe(2); // first attempt rejected, retry succeeded
   expect(gh.json("data/clients.json").map((c: any) => c.slug)).toEqual([
-    "michelle-baratt-psychology",
+    ...existing(),
     "other-co",
     "acme-roofing",
   ]);

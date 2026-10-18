@@ -27,6 +27,7 @@ export function ClientEditor({
         accent: client.accent,
         pres: client.pres || demo.presenter.name,
         logo: client.logo,
+        presLogo: client.presLogo || null,
       };
     const ind = demo.order[0];
     return {
@@ -36,6 +37,7 @@ export function ClientEditor({
       accent: demo.industries[ind].business.accent,
       pres: settings.defaultPres || demo.presenter.name,
       logo: null,
+      presLogo: null,
     };
   }, [client, demo, settings]);
   const [draft, setDraft] = useState<Draft>(initial);
@@ -44,8 +46,8 @@ export function ClientEditor({
   const [confirmClose, setConfirmClose] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
   const dirty =
-    JSON.stringify({ ...draft, upload: draft.upload?.hash }) !==
-    JSON.stringify({ ...initial, upload: undefined });
+    JSON.stringify({ ...draft, upload: draft.upload?.hash, presUpload: draft.presUpload?.hash }) !==
+    JSON.stringify({ ...initial, upload: undefined, presUpload: undefined });
 
   const tryClose = () => {
     if (saving) return;
@@ -72,6 +74,7 @@ export function ClientEditor({
       ? newSlug(draft.name, state?.clients || [], demo)
       : "";
   const logoSrc = draft.upload ? draft.upload.dataUrl : logoUrl(draft.logo);
+  const presLogoSrc = draft.presUpload ? draft.presUpload.dataUrl : logoUrl(draft.presLogo);
   const previewClient = useMemo(
     () => ({
       slug: slug || "preview",
@@ -81,8 +84,9 @@ export function ClientEditor({
       accent: draft.accent,
       pres: draft.pres.trim() || demo.presenter.name,
       logo: logoSrc,
+      presLogo: presLogoSrc,
     }),
-    [slug, draft, logoSrc, demo],
+    [slug, draft, logoSrc, presLogoSrc, demo],
   );
 
   async function submit(e: React.FormEvent) {
@@ -129,6 +133,7 @@ export function ClientEditor({
                 draft={draft}
                 onChange={patch}
                 logoSrc={logoSrc}
+                presLogoSrc={presLogoSrc}
                 nameError={nameError}
                 nameRef={nameRef}
               />

@@ -33,6 +33,7 @@ function GeneralForm({ general }: { general: General }) {
       accent: general?.accent || demo.industries[ind].business.accent,
       pres: general?.pres || settings.defaultPres || demo.presenter.name,
       logo: general?.logo || null,
+      presLogo: general?.presLogo || null,
     };
   }, [general, demo, settings]);
   const [draft, setDraft] = useState(initial);
@@ -40,10 +41,11 @@ function GeneralForm({ general }: { general: General }) {
   const [confirmReset, setConfirmReset] = useState(false);
   const [accentTouched, setAccentTouched] = useState(!!general);
   const dirty =
-    JSON.stringify({ ...draft, upload: draft.upload?.hash }) !==
-    JSON.stringify({ ...initial, upload: undefined });
+    JSON.stringify({ ...draft, upload: draft.upload?.hash, presUpload: draft.presUpload?.hash }) !==
+    JSON.stringify({ ...initial, upload: undefined, presUpload: undefined });
   const link = linkFor("");
   const logoSrc = draft.upload ? draft.upload.dataUrl : logoUrl(draft.logo);
+  const presLogoSrc = draft.presUpload ? draft.presUpload.dataUrl : logoUrl(draft.presLogo);
   const example = demo.industries[draft.ind]?.business;
 
   const patch = (p: Partial<Draft>) => {
@@ -63,8 +65,9 @@ function GeneralForm({ general }: { general: General }) {
       accent: draft.accent,
       pres: draft.pres.trim() || demo.presenter.name,
       logo: logoSrc,
+      presLogo: presLogoSrc,
     }),
-    [draft, logoSrc, demo],
+    [draft, logoSrc, presLogoSrc, demo],
   );
 
   return (
@@ -119,7 +122,14 @@ function GeneralForm({ general }: { general: General }) {
         }}
       >
         <div className="panel">
-          <ClientForm demo={demo} draft={draft} onChange={patch} logoSrc={logoSrc} general />
+          <ClientForm
+            demo={demo}
+            draft={draft}
+            onChange={patch}
+            logoSrc={logoSrc}
+            presLogoSrc={presLogoSrc}
+            general
+          />
           {!draft.name.trim() && example && (
             <p className="hint">
               With no name, visitors see <b>{example.name}</b> for this industry.

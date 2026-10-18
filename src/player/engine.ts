@@ -37,12 +37,18 @@ export function boot() {
   st.IND = IND;
   const d = demo.industries[IND];
   st.DEF = CLIENT
-    ? Object.assign(presFor(CLIENT.pres), {
-        biz: CLIENT.name || d.business.name,
-        logo: assetUrl(CLIENT.logo),
-        accent: CLIENT.accent || d.business.accent,
-        cur: CLIENT.cur || demo.currency || "USD",
-      })
+    ? Object.assign(
+        // A custom presenter logo replaces the Verdant logo / name wordmark.
+        CLIENT.presLogo
+          ? { pres: CLIENT.pres || demo.presenter.name, presLogo: assetUrl(CLIENT.presLogo) as string }
+          : presFor(CLIENT.pres),
+        {
+          biz: CLIENT.name || d.business.name,
+          logo: assetUrl(CLIENT.logo),
+          accent: CLIENT.accent || d.business.accent,
+          cur: CLIENT.cur || demo.currency || "USD",
+        },
+      )
     : Object.assign(presFor(""), {
         biz: d.business.name,
         logo: null,
