@@ -83,12 +83,32 @@ export type DeployStatus =
   | { state: "failed"; url?: string }
   | { state: "unknown"; reason: string; url?: string };
 
+/** Local admin (npm run admin): API calls go through the dev server, which adds this computer's GitHub login. */
+export const LOCAL_API = "/__github";
+
+export async function localAdminConfig(): Promise<RepoConfig | null> {
+  if (!import.meta.env.DEV) return null;
+  try {
+    const r = await fetch(LOCAL_API + "/status", { headers: { "X-Demo-Admin": "1" }, cache: "no-store" });
+    const j = await r.json();
+    return r.ok && j.ok ? { owner: j.owner, repo: j.repo, branch: repoConfig().branch } : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 export class GitHub {
   constructor(
     private token: string,
     public cfg: RepoConfig,
     private fetcher: typeof fetch = (...a) => fetch(...a),
+    /** "" = api.github.com with the token; LOCAL_API = via the local dev server. */
+    private apiBase = API,
   ) {}
+
+  get local() {
+    return this.apiBase === LOCAL_API;
+  }
 
   get repoPath() {
     return `/repos/${this.cfg.owner}/${this.cfg.repo}`;
@@ -107,12 +127,12 @@ export class GitHub {
       throw new GitHubError("network", "You're offline. Reconnect, then try again.");
     let r: Response;
     try {
-      r = await this.fetcher(API + path, {
+      r = await this.fetcher(this.apiBase + path, {
         method,
         cache: "no-store",
         headers: {
           Accept: accept,
-          Authorization: `Bearer ${this.token}`,
+          ...(this.local ? { "X-Demo-Admin": "1" } : { Authorization: `Bearer ${this.token}` }),
           "X-GitHub-Api-Version": "2022-11-28",
           ...(body ? { "Content-Type": "application/json" } : {}),
         },

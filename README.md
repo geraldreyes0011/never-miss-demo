@@ -63,7 +63,11 @@ The admin's owner and repo are baked in at build time from the repository the wo
 | `deploy.yml` | Push to `main`, manual | Build with `VITE_BASE`, copy `data/` into the site, publish to Pages (concurrency group `pages`) |
 | `voice.yml` | Push to `main` touching `data/demo.json`, manual | Records missing voice clips, updates `data/audio-map.json`, removes unused clips, commits `chore(voice): update voice-over [skip ci]`, triggers Deploy |
 
-## Signing in to the admin
+## Opening the admin on your computer (no sign-in)
+
+Double-click **`Open Demo Admin.command`** in this folder, or run `npm run admin`. The admin opens at `http://localhost:5173/admin/`, already signed in. It uses this computer's GitHub CLI login (`gh auth login`), which never leaves the computer. Saves publish to the live site as usual, and copied links and QR codes point at the live site. Keep the Terminal window open while you edit.
+
+## Signing in to the online admin (from another computer)
 
 The admin uses a GitHub **fine-grained personal access token** scoped to this repo only:
 
@@ -77,7 +81,7 @@ The token is never committed or logged. It is sent only to `api.github.com`. **S
 
 ## Adding a client (about 30 seconds)
 
-1. `/admin/` → **Client links** → **New client** (or press **N**).
+1. Open the admin (double-click `Open Demo Admin.command`) → **Client links** → **New client** (or press **N**).
 2. Fill in the business name, then search for the industry (e.g. "psychologist", "aircon"). Pick a currency and brand colour, drop in a logo, and keep "Verdant Partners" or type another presenter name (shown as a wordmark).
 3. Watch the live preview, then click **Create client link**. The link is copied to your clipboard.
 4. The top-bar pill shows **Publishing…**, then **Live** after about a minute. Send the link.

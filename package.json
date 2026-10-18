@@ -13,7 +13,8 @@
     "validate-content": "tsx scripts/validate-content.ts",
     "migrate-logos": "tsx scripts/migrate-logos.ts",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "admin": "vite --open /admin/"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",

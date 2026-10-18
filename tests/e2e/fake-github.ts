@@ -89,6 +89,9 @@ export class FakeGitHub {
       return json(401, { message: "Bad credentials" });
 
     const url = new URL(req.url());
+    // Answer for whichever repo the admin build is configured with (CI and local builds differ).
+    const m0 = /^\/repos\/([^/]+)\/([^/]+)/.exec(new URL(req.url()).pathname);
+    if (m0) [this.owner, this.repo] = [m0[1], m0[2]];
     const base = `/repos/${this.owner}/${this.repo}`;
     const p = url.pathname;
     const m = req.method();

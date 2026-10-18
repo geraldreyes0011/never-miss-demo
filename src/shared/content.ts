@@ -37,5 +37,11 @@ export function linkFor(
   slug: string,
   origin = typeof location !== "undefined" ? location.origin : "",
 ): string {
-  return origin + BASE + (slug ? "#" + slug : "");
+  return siteUrl(origin) + (slug ? "#" + slug : "");
+}
+
+/** The public site. When the admin runs locally, links point at the live site, not localhost. */
+export function siteUrl(origin = typeof location !== "undefined" ? location.origin : ""): string {
+  const live = import.meta.env.DEV ? import.meta.env.VITE_SITE_URL : "";
+  return live || origin + BASE;
 }

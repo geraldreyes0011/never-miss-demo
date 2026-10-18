@@ -28,12 +28,17 @@ export function SettingsPage() {
             <code>{gh.cfg.branch}</code>
             {state && <span className="muted"> at {state.sha.slice(0, 7)}</span>}
           </dd>
-          <dt>Token</dt>
+          <dt>Access</dt>
           <dd>
             <span className="status-ok">
-              <Icon name="check" /> Valid
+              <Icon name="check" /> Connected
             </span>{" "}
-            · {remembered ? "remembered on this device" : "this browser session only"}
+            ·{" "}
+            {gh.local
+              ? "using this computer's GitHub login"
+              : remembered
+                ? "token remembered on this device"
+                : "token for this browser session only"}
           </dd>
           <dt>Content</dt>
           <dd>
@@ -45,10 +50,12 @@ export function SettingsPage() {
             Reload from GitHub
           </button>
           <span className="grow" />
-          <button className="btn danger" type="button" onClick={() => signOut()}>
-            <Icon name="logout" />
-            Sign out
-          </button>
+          {!gh.local && (
+            <button className="btn danger" type="button" onClick={() => signOut()}>
+              <Icon name="logout" />
+              Sign out
+            </button>
+          )}
         </div>
       </div>
       <form

@@ -1,8 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { assetUrl, BASE, linkFor, loadContent } from "../shared/content";
+import { assetUrl, linkFor, loadContent, siteUrl } from "../shared/content";
 import type { AudioMap, Client, Demo } from "../shared/types";
 import { AdminCtx, type AdminApi } from "./context";
-import { clearToken, GitHub, GitHubError, loadToken, type DeployStatus, type RepoState } from "./github";
+import {
+  clearToken,
+  GitHub,
+  GitHubError,
+  loadToken,
+  LOCAL_API,
+  localAdminConfig,
+  type DeployStatus,
+  type RepoState,
+} from "./github";
 import { copyText, loadSettings, storeSettings, useOnline, useToast, type AdminSettings } from "./hooks";
 import { deleteClient, newSlug, saveClient, saveGeneral, type Draft } from "./ops";
 import { Shell } from "./components/Shell";
@@ -22,6 +31,20 @@ export function App() {
     setGh(null);
     setNotice(msg || "");
   }, []);
+  const [checkingLocal, setCheckingLocal] = useState(import.meta.env.DEV);
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    localAdminConfig().then((cfg) => {
+      if (cfg) setGh(new GitHub("", cfg, undefined, LOCAL_API));
+      setCheckingLocal(false);
+    });
+  }, []);
+  if (checkingLocal)
+    return (
+      <div className="boot">
+        <div className="skeleton boot-sk" aria-label="Loading" />
+      </div>
+    );
   if (!gh)
     return (
       <SignIn
@@ -254,7 +277,7 @@ function Admin({ gh, signOut }: { gh: GitHub; signOut: (notice?: string) => void
   const [page, sub] = route.split("/");
   return (
     <AdminCtx.Provider value={api}>
-      <Shell route={page} deploy={deploy} liveUrl={BASE}>
+      <Shell route={page} deploy={deploy} liveUrl={siteUrl()}>
         {page === "general" ? (
           <GeneralPage />
         ) : page === "industries" ? (

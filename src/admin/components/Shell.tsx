@@ -107,10 +107,14 @@ export function Shell({
           <a className="repo-link" href={gh.repoUrl} target="_blank" rel="noreferrer">
             {gh.cfg.owner}/{gh.cfg.repo}
           </a>
-          <button className="nav-item" type="button" onClick={() => signOut()}>
-            <Icon name="logout" />
-            Sign out
-          </button>
+          {gh.local ? (
+            <span className="repo-link">Signed in on this computer</span>
+          ) : (
+            <button className="nav-item" type="button" onClick={() => signOut()}>
+              <Icon name="logout" />
+              Sign out
+            </button>
+          )}
         </div>
       </aside>
       <div className="main-col">
