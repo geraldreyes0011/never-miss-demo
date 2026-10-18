@@ -106,6 +106,11 @@ export class GitHub {
     private apiBase = API,
   ) {}
 
+  /** The token itself (empty in local mode), used only to set up email & password sign-in. */
+  get credential() {
+    return this.token;
+  }
+
   get local() {
     return this.apiBase === LOCAL_API;
   }

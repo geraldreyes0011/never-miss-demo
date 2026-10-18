@@ -3,6 +3,7 @@ import { slugify, uniqueSlug } from "../shared/slug";
 import type { Client, CurrencyCode, Demo, General } from "../shared/types";
 import type { FileChange, GitHub, RepoState, SaveResult } from "./github";
 import type { ProcessedLogo } from "./images";
+import { sealAccount } from "../shared/vault";
 
 /** The editable fields of a client link or the general link. */
 export interface Draft {
@@ -111,4 +112,15 @@ export function saveGeneral(gh: GitHub, draft: Draft | null): Promise<SaveResult
       next: { ...latest, general },
     };
   });
+}
+
+/** Email & password sign-in: lock this session's token with them and store the locked copy. */
+export async function saveAccount(gh: GitHub, email: string, password: string): Promise<SaveResult> {
+  if (!gh.credential) throw new Error("Sign in with a GitHub token first.");
+  const sealed = await sealAccount(gh.credential, email, password);
+  return gh.save((latest) => ({
+    message: "admin: set email & password sign-in",
+    files: [{ path: "data/admin-account.json", text: JSON.stringify(sealed, null, 1) + "\n" }],
+    next: latest,
+  }));
 }

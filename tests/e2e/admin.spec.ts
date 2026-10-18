@@ -201,3 +201,45 @@ test("sign out clears the token", async ({ page }) => {
     ),
   ).toBeNull();
 });
+
+test("email & password: set up in Settings, then sign in with them", async ({ page, context }) => {
+  test.setTimeout(60_000);
+  const gh = new FakeGitHub();
+  await signIn(page, gh);
+  await expect(page.getByText("Michelle Baratt Psychology")).toBeVisible();
+  await page.getByRole("link", { name: "Settings" }).click();
+  await page.getByLabel("Email", { exact: true }).fill("owner@example.com");
+  await page.getByLabel("New password").fill("short");
+  await page.getByLabel("Confirm password").fill("short");
+  await page.getByRole("button", { name: "Save email & password" }).click();
+  await expect(page.getByRole("alert")).toContainText("at least 12 characters");
+  await page.getByLabel("New password").fill("orbit-velvet-canyon-42");
+  await page.getByLabel("Confirm password").fill("orbit-velvet-canyon-42");
+  await page.getByRole("button", { name: "Save email & password" }).click();
+  await expect(page.getByText(/Email & password saved/)).toBeVisible({ timeout: 20_000 });
+  const commit = gh.recorded.at(-1)!;
+  expect(commit.message).toBe("admin: set email & password sign-in");
+  const sealed = gh.file("data/admin-account.json")!.text!;
+  expect(sealed).not.toContain(gh.token); // only the locked copy is stored
+  expect(JSON.parse(sealed)).toMatchObject({ v: 1, kdf: "PBKDF2-SHA256" });
+
+  // A fresh browser on another device: the site now serves the locked account file.
+  const page2 = await context.newPage();
+  await page2.route("**/data/admin-account.json", (r) =>
+    r.fulfill({ status: 200, contentType: "application/json", body: sealed }),
+  );
+  await gh.install(page2);
+  await page2.addInitScript(() => {
+    sessionStorage.clear();
+    localStorage.removeItem("jd-admin-token");
+  });
+  await page2.goto("/admin/");
+  await expect(page2.getByLabel("GitHub token")).toBeHidden();
+  await page2.getByLabel("Email").fill("owner@example.com");
+  await page2.getByLabel("Password").fill("wrong-password-123");
+  await page2.getByRole("button", { name: "Sign in" }).click();
+  await expect(page2.getByRole("alert")).toContainText("don't match", { timeout: 20_000 });
+  await page2.getByLabel("Password").fill("orbit-velvet-canyon-42");
+  await page2.getByRole("button", { name: "Sign in" }).click();
+  await expect(page2.getByText("Michelle Baratt Psychology")).toBeVisible({ timeout: 20_000 });
+});

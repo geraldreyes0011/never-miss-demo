@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { BASE } from "../../shared/content";
+import { openAccount, type SealedAccount } from "../../shared/vault";
 import {
   GitHub,
   GitHubError,
@@ -30,6 +32,42 @@ export function SignIn({
   const [checkingSaved, setCheckingSaved] = useState(!!initialToken && !notice);
   const [error, setError] = useState(notice);
   const tokenRef = useRef<HTMLInputElement>(null);
+  /** undefined while loading; null when no email & password sign-in has been set up yet. */
+  const [account, setAccount] = useState<SealedAccount | null | undefined>(undefined);
+  const [useToken, setUseToken] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const emailRef = useRef<HTMLInputElement>(null);
+  const accountMode = !!account && !useToken;
+
+  useEffect(() => {
+    fetch(BASE + "data/admin-account.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((a) => setAccount(a && a.v === 1 ? (a as SealedAccount) : null))
+      .catch(() => setAccount(null));
+  }, []);
+  useEffect(() => {
+    if (account === undefined || checkingSaved) return;
+    (accountMode ? emailRef : tokenRef).current?.focus();
+  }, [account, accountMode, checkingSaved]);
+
+  async function signInWithPassword() {
+    if (!account) return;
+    if (!email.trim() || !password) {
+      setError("Enter your email and password.");
+      return;
+    }
+    setBusy(true);
+    setError("");
+    const t = await openAccount(account, email, password);
+    if (!t) {
+      setBusy(false);
+      setPassword("");
+      setError("That email and password don't match. Check them and try again.");
+      return;
+    }
+    attempt(t, remember);
+  }
 
   async function attempt(t: string, rememberIt: boolean, silent = false) {
     if (!owner.trim() || !repo.trim()) {
@@ -49,13 +87,12 @@ export function SignIn({
       setCheckingSaved(false);
       if (!silent || !(e instanceof GitHubError && e.kind === "network"))
         setError(e instanceof GitHubError ? e.message : "Couldn't check the token. Try again.");
-      setTimeout(() => tokenRef.current?.focus(), 0);
+      setTimeout(() => (accountMode ? emailRef : tokenRef).current?.focus(), 0);
     }
   }
 
   useEffect(() => {
     if (initialToken && !notice) attempt(initialToken, tokenRemembered(), true);
-    else tokenRef.current?.focus();
     // run once on mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -71,12 +108,12 @@ export function SignIn({
       actions: "read",
     }).toString();
 
-  if (checkingSaved)
+  if (checkingSaved || account === undefined)
     return (
       <main className="signin">
         <div className="signin-card center">
-          <Spinner label="Checking your saved token" />
-          <p className="muted">Checking your saved token…</p>
+          <Spinner label="Loading" />
+          <p className="muted">{checkingSaved ? "Signing you in…" : "Loading…"}</p>
         </div>
       </main>
     );
@@ -99,7 +136,53 @@ export function SignIn({
             <span>{error}</span>
           </div>
         )}
+        {accountMode && (
+          <form
+            className="form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              signInWithPassword();
+            }}
+          >
+            <div className="field">
+              <label htmlFor="si-email">Email</label>
+              <input
+                id="si-email"
+                ref={emailRef}
+                className="input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="username"
+                spellCheck={false}
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="si-password">Password</label>
+              <input
+                id="si-password"
+                className="input"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+            </div>
+            <label className="check">
+              <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
+              Keep me signed in on this device
+            </label>
+            <button className="btn primary lg" type="submit" disabled={busy}>
+              {busy ? <Spinner /> : null}
+              {busy ? "Signing in…" : "Sign in"}
+            </button>
+            <button type="button" className="linkish small-link" onClick={() => setUseToken(true)}>
+              Use a GitHub token instead
+            </button>
+          </form>
+        )}
         <form
+          hidden={accountMode}
           className="form"
           onSubmit={(e) => {
             e.preventDefault();
@@ -161,8 +244,13 @@ export function SignIn({
             {busy ? <Spinner /> : null}
             {busy ? "Checking…" : "Sign in"}
           </button>
+          {account && (
+            <button type="button" className="linkish small-link" onClick={() => setUseToken(false)}>
+              Sign in with email and password
+            </button>
+          )}
         </form>
-        <details className="howto" open={!initialToken}>
+        <details className="howto" open={!initialToken} hidden={accountMode}>
           <summary>How to create the token (2 minutes)</summary>
           <ol>
             <li>

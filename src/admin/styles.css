@@ -211,6 +211,10 @@ kbd {
   opacity: 0.45;
   cursor: default;
 }
+.small-link {
+  align-self: center;
+  font-size: 13px;
+}
 .linkish {
   border: 0;
   background: none;
