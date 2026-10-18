@@ -7,5 +7,14 @@
   "pres": "Gerald Reyes",
   "logo": "logos/michelle-baratt-psychology-72daf16d.webp",
   "cur": "USD"
+ },
+ {
+  "slug": "dental-smile",
+  "name": "Dental Smile",
+  "ind": "dental",
+  "cur": "USD",
+  "accent": "#7C3AED",
+  "pres": "Verdant Partners",
+  "logo": "logos/dental-smile-72daf16d.webp"
  }
 ]
